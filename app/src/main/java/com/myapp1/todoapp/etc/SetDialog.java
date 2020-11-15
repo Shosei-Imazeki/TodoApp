@@ -3,9 +3,12 @@ package com.myapp1.todoapp.etc;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 
 import com.myapp1.todoapp.R;
+import com.myapp1.todoapp.activity.InputEditActivity;
+import com.myapp1.todoapp.activity.TodoListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +72,7 @@ public class SetDialog {
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // OK button pressed
+                            //todo: dbに接続するメソッドを呼び出す
                         }
                     })
                     .setNegativeButton("Cancel", null)
@@ -84,7 +87,7 @@ public class SetDialog {
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // OK button pressed
+                            // todo:dbに接続するメソッドを呼び出す
                         }
                     })
                     .setNegativeButton("Cancel", null)
@@ -92,4 +95,86 @@ public class SetDialog {
 
         }
     }
+
+    /**
+     * TODO登録確認ダイアログを表示
+     */
+    public void createSaveDialog(final Context context) {
+        new AlertDialog.Builder(context)
+                .setIcon(R.drawable.ic_action_save)
+                .setTitle("TODO登録")
+                .setMessage("入力された内容で登録します。\n" +
+                        "よろしいですか。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //todo: dbに接続するメソッドを呼び出す
+                        Intent intent;
+                        intent = new Intent(context, TodoListActivity.class);
+                        context.startActivity(intent);
+
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    /**
+     * 完了　未完了の変更を確認するダイアログ
+     */
+    public void createStateChange(Context context, boolean finishedOrUnfinished) {
+        if (finishedOrUnfinished) { //完了ー＞未完了
+            new AlertDialog.Builder(context)
+                    .setIcon(R.drawable.ic_action_save)
+                    .setTitle("TODO状態変更")
+                    .setMessage("TODOを未完了状態にします。\n" +
+                            "よろしいですか。")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //todo: dbに接続するメソッドを呼び出す
+                        }
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        } else { //未完了ー＞完了
+            new AlertDialog.Builder(context)
+                    .setIcon(R.drawable.ic_action_save)
+                    .setTitle("TODO状態変更")
+                    .setMessage("TODOを完了状態にします。\n" +
+                            "よろしいですか。")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //todo: dbに接続するメソッドを呼び出す
+                        }
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        }
+    }
+
+    /**
+     * 戻るボタン押下時に確認を問うダイアログ
+     */
+    public void createBackConfirmDialog(final Context context) {
+        new AlertDialog.Builder(context)
+                .setIcon(R.drawable.ic_action_save)
+                .setTitle("リスト画面に戻る")
+                .setMessage("入力された内容は破棄されます\n" +
+                        "よろしいですか。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //todo: dbに接続するメソッドを呼び出す
+                        Intent intent;
+                        intent = new Intent(context, TodoListActivity.class);
+                        context.startActivity(intent);
+
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
 }

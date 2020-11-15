@@ -29,11 +29,11 @@ public class InputEditActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         SetDialog setDialog = new SetDialog();
+        Intent intent;
 
         switch (item.getItemId()) {
             case R.id.menu_home:
-                Intent intentHome = new Intent(InputEditActivity.this,TodoListActivity.class);
-                startActivity(intentHome);
+                setDialog.createBackConfirmDialog(InputEditActivity.this);
                 return true;
 
             case R.id.menu_delete:
@@ -41,13 +41,12 @@ public class InputEditActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_save:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                setDialog.createSaveDialog(InputEditActivity.this);
+                //todo:登録できたことを確認するログを出す
+                //リスト画面に戻す
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
