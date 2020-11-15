@@ -1,0 +1,22 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/menu_save"
+        app:showAsAction="ifRoom"
+        android:title="@string/save_todo">
+    </item>
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@drawable/ic_action_delete"
+        app:showAsAction="ifRoom"
+        android:title="@string/delete_todo">
+    </item>
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_action_home"
+        app:showAsAction="ifRoom"
+        android:title="@string/home">
+</item>
+</menu>

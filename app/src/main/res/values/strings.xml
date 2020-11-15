@@ -1,3 +1,15 @@
 <resources>
+    <!-- 各Activityごとの役割名 -->
     <string name="app_name">TodoApp</string>
+    <string name="todolist_activity">TODOリスト</string>
+    <string name="InputEdit_activity">入力/編集</string>
+    <string name="detail_activity">詳細</string>
+
+    <!-- アクションバーメニュー -->
+    <string name="save_todo">Save</string>
+    <string name="add_todo">Add</string>
+    <string name="home">Home</string>
+    <string name="delete_all">Delete All</string>
+    <string name="delete_todo">Delete</string>
+    <string name="filter">Filter</string>
 </resources>
