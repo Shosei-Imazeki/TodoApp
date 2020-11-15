@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.myapp1.todoapp.R;
+import com.myapp1.todoapp.etc.SetDialog;
 
 public class InputEditActivity extends AppCompatActivity {
 
@@ -27,6 +28,8 @@ public class InputEditActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        SetDialog setDialog = new SetDialog();
+
         switch (item.getItemId()) {
             case R.id.menu_home:
                 Intent intentHome = new Intent(InputEditActivity.this,TodoListActivity.class);
@@ -34,8 +37,7 @@ public class InputEditActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_delete:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                setDialog.createDeleteDialog(InputEditActivity.this,false);
                 return true;
 
             case R.id.menu_save:

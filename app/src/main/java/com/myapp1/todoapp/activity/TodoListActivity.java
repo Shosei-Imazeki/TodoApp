@@ -2,6 +2,7 @@ package com.myapp1.todoapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Int4;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.myapp1.todoapp.R;
+import com.myapp1.todoapp.etc.SetDialog;
 
 public class TodoListActivity extends AppCompatActivity {
 
@@ -28,6 +30,8 @@ public class TodoListActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        SetDialog setDialog = new SetDialog();
+
         switch (item.getItemId()) {
             case R.id.menu_add:
                 Intent intentInput = new Intent(TodoListActivity.this,InputEditActivity.class);
@@ -35,13 +39,11 @@ public class TodoListActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_delete_all:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                setDialog.createDeleteDialog(TodoListActivity.this,true);
                 return true;
 
             case R.id.menu_filter:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                setDialog.createFilterDialog(TodoListActivity.this);
                 return true;
 
             default:
